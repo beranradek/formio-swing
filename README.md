@@ -1,3 +1,3 @@
-# Formio in Swing Example of Swing application using Formio library for forms
+# Formio in Swing
 
 #### Example of Swing application using Formio library for forms
