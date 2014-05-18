@@ -1,0 +1,30 @@
+apply plugin: 'eclipse'
+apply plugin:'java'
+apply plugin:'application'
+
+mainClassName = "net.formio.swing.Application"
+applicationName = "formio-swing"
+
+version = '1.0'
+group = 'net.formio.swing'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+// Bez takto urceneho repositare resolvovani interni ivy knihovnou gradlu nefunguje: 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	def slf4jVersion = '1.7.5';
+  
+  compile "org.slf4j:slf4j-api:${slf4jVersion}"
+  compile "org.mortbay.jetty:jsp-2.1-glassfish:2.1.v20100127"
+  compile "org.hibernate:hibernate-validator:5.1.0.Final"
+  compile "net.formio:formio:1.0.4"
+
+	testCompile 'junit:junit:4.8.2'
+}
+
+task stage(dependsOn: ['clean', 'installApp'])
